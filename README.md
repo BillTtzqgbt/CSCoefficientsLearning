@@ -1,2 +1,17 @@
 # CSCoefficientsLearning
-training-free artificial neural network for universal compressed sensing or sparse reconstruction
+
+This is the code and data for:
+《training-free artificial neural network for universal compressed sensing with coefficients learning》
+
+Which makes universal compressed sensing reconstruction fast and accurate in neural network architecture, and more importantly, this coefficients learning method has the same generality and is totally interpretable, and it requires no training. We hope this method can fully substitute traditional iterative methods like OMP and IHT, especially for image and large-scale data reconstruction.
+
+
+Both Paddlepaddle and Pytorch version are given, our paper uses the Paddlepaddle version.
+
+We implmented three structures, i.e. CSRec1, CSRec2 and CSRec3, they work both for 1D and 2D signals. CSRec2 work best in our test.
+
+CLOMP1D is for one-dimensional signal testing;
+CLOMP2D is for two-dimensional signal testing;
+
+
+
