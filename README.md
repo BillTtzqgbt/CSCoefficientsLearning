@@ -1,7 +1,7 @@
 # CSCoefficientsLearning
 
 This is the code and data for:
-《Training-free Ultra Small Model for Universal Sparse Reconstruction in Compressed Sensing》
+Chaoqing Tang, et al. 《Training-free Ultra Small Model for Universal Sparse Reconstruction in Compressed Sensing》
 
 , which makes universal compressed sensing reconstruction fast and accurate in neural network architecture, and more importantly, this coefficients learning method has the same generality and is fully interpretable, it requires no training. We hope this method can fully substitute traditional iterative methods like OMP and IHT, especially for spase reconstruction of image and large-scale data in under-determined linear systems.
 
