@@ -47,3 +47,10 @@ def ssim2D(img1, img2,DR):
   ssim_map = ((2 * mu1_mu2 + C1) * (2 * sigma12 + C2)) / ((mu1_sq + mu2_sq + C1) *
                               (sigma1_sq + sigma2_sq + C2))
   return ssim_map.mean()
+
+#calculate PSNR
+psnr = 20.0 * np.log10(1.0 / np.sqrt(mse))
+
+#calculate Pearson Correlation Coefficient
+from scipy.stats import pearsonr
+PCC, _ = pearsonr(GroundTruth, Predicted)
