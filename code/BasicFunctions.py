@@ -1,5 +1,5 @@
 def calculate_sparsity_rate_1d(data_matrix, threshold=0.98):
-#calculate sparse rate on DCT
+#calculate sparse rate on DCT for 1D signals
     n, W = data_matrix.shape  # 
     sparsity_rates = []  # 
 
@@ -25,6 +25,40 @@ def calculate_sparsity_rate_1d(data_matrix, threshold=0.98):
     
     return average_sparsity
 
+
+def calculate_sparsity_rate_2d(img1, threshold=0.98):
+    """
+    Calculate sparse rate of image on 2D FFT
+    
+    Par:
+        img1: numpy image
+        threshold: threshold value that indicates the main power
+    
+    Return：
+        Sparse rate
+    """
+    if len(img1.shape) == 3: 
+        input_img = cv2.cvtColor(img1, cv2.COLOR_RGB2GRAY)
+    else:
+        input_img = img1
+    
+    img = input_img.astype('float32')
+
+    H, W = np.shape(img)
+    img = img/np.max(img)#
+
+    S = np.abs(np.fft.fft2(img,norm='ortho'))
+    S1 = np.reshape(S,[1,-1])
+    S1sorted = np.fliplr(np.sort(S1))
+
+    Csum = np.cumsum(S1sorted)# (1, 8294400)
+    Csum = Csum/np.sum(S1sorted)#
+
+    Pos = np.where(Csum>threshold)[0][0]
+
+    Kr = Pos/H/W
+    
+    return Kr
 
 def ssim2D(img1, img2,DR):
   L = DR# depth of image (255 in case the image has a differnt scale)
